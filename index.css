@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+}
+
+#menu_div {
+    height: 105px;
+}
+
+#menu {
+    height: 85px;
+    width: 95%;
+    background-color: gray;
+    margin: 10px 0 0 -5px;
+    float: left;
+    box-shadow: 1px 4px 15px 2px black;
+}
+
+#menu_button {
+    height: 30px;
+    width: 85px;
+    background-color: gray;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin: 38px 0 0 -30px;
+    float: left;
+    text-align: center;
+    font-size: 1.6em;
+    border-radius: 0 0 15px 15px;
+    box-shadow: -4px 4px 15px 2px black;
+    font-family: Garamond;
+}
+
+.counter {
+    width: 2em;
+    font-size: 3em;
+    text-align: center;
+    margin-top: 100px;
+    text-shadow: 0.1em 0.1em 0.2em black;
+    color: red;
+    border: none;
+}
+
+#timer {
+    margin-left: 150px;
+}
+
+#mines_counter {
+    margin-left: 665px;
+}
+
+#smiley_dev {
+    height: 65px;
+    text-align: center;
+}
+
+#smiley {
+    height: 50px;
+    margin-top: 5px;
+    z-index: 0;
+}
+
+#minefield_div {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.initially_invisible {
+    display: none;
+}
+
+table {
+    border: 1px solid black;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin: auto;
+}
+
+td {
+    width: 23px;
+    height: 23px;
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: 2px 2px 10px 2px black;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.closed_cell {
+    background-color: gray;
+}
+
+.closed_cell:hover {
+    -webkit-box-shadow: 0 0 5px 4px orange;
+    -moz-box-shadow: 0 0 5px 4px orange;
+    box-shadow: 0 0 5px 4px orange;
+}
+
+.closed_cell_endgame {
+    background-color: gray;
+}
+
+.mine_cell {
+    background-color: red;
+}
+
+.empty_cell {
+    background-color: white;
+}
+
+.flagged_cell {
+    background-color: black;
+    color: blue;
+}
+
+.flagged_cell:hover {
+    box-shadow: 0 0 5px 4px orange;
+}
+
+.flagged_cell_endgame {
+    background-color: black;
+    color: blue;
+}
+
+.num1 { color: blue; background-color: white; }
+.num2 { color: green; background-color: white; }
+.num3 { color: red; background-color: white; }
+.num4 { color: seagreen; background-color: white; }
+.num5 { color: brown; background-color: white; }
+.num6 { color: orange; background-color: white; }
+.num7 { color: darkcyan; background-color: white; }
+.num8 { color: purple; background-color: white; }
+
+#minefield_div > p {
+    width: 99%;
+    z-index: 1;
+    font-size: 5em;
+    position: absolute;
+    text-align: center;
+    font-weight: bold;
+    color: red;
+    text-shadow: 0.1em 0.1em 0.15em black;
+}
