@@ -22,6 +22,7 @@ $(document).ready(function () {
     $(document).on('mousedown', onDocumentMouseDown);
     $(document).on('mouseup', onDocumentMouseUp);
     $(document).on('click', '.num1, .num2, .num3, .num4, .num5, .num6, .num7, .num8', onOpenedNumCellClick);
+    $(document).on('dblclick', '.num1, .num2, .num3, .num4, .num5, .num6, .num7, .num8', onOpenedNumCellDoubleClick);
 });
 
 function onMenuButtonClick() {
@@ -88,24 +89,36 @@ function onOpenedNumCellClick(e) {
     if ($(this).hasClass('empty_cell')) return;
 
     if (e.which !== 3 && document.rightMouseDown) {
-        var r = parseInt($(this).attr('r')),
-            c = parseInt($(this).attr('c')),
-            adjacentCells = $(
-                'td[r='+(r)+'][c='+(c+1)+'],' +
-                'td[r='+(r)+'][c='+(c-1)+'],' +
-                'td[r='+(r+1)+'][c='+(c+1)+'],' +
-                'td[r='+(r+1)+'][c='+(c-1)+'],' +
-                'td[r='+(r+1)+'][c='+(c)+'],' +
-                'td[r='+(r-1)+'][c='+(c+1)+'],' +
-                'td[r='+(r-1)+'][c='+(c-1)+'],' +
-                'td[r='+(r-1)+'][c='+(c)+']'
-            ),
-            cellNum = parseInt($(this).text()),
-            adjacentFlagsCount = adjacentCells.filter('.flagged_cell').length;
+        attemptOpenAdjacent(this);
+    }
+}
 
-        if (adjacentFlagsCount === cellNum) {
-            adjacentCells.filter('.closed_cell').trigger('mousedown');
-        }
+function onOpenedNumCellDoubleClick(e) {
+    if ($(this).hasClass('empty_cell')) return;
+
+    if (e.which !== 3) {
+        attemptOpenAdjacent(this);
+    }
+}
+
+function attemptOpenAdjacent(cell) {
+    var r = parseInt($(cell).attr('r')),
+        c = parseInt($(cell).attr('c')),
+        adjacentCells = $(
+            'td[r='+(r)+'][c='+(c+1)+'],' +
+            'td[r='+(r)+'][c='+(c-1)+'],' +
+            'td[r='+(r+1)+'][c='+(c+1)+'],' +
+            'td[r='+(r+1)+'][c='+(c-1)+'],' +
+            'td[r='+(r+1)+'][c='+(c)+'],' +
+            'td[r='+(r-1)+'][c='+(c+1)+'],' +
+            'td[r='+(r-1)+'][c='+(c-1)+'],' +
+            'td[r='+(r-1)+'][c='+(c)+']'
+        ),
+        cellNum = parseInt($(cell).text()),
+        adjacentFlagsCount = adjacentCells.filter('.flagged_cell').length;
+
+    if (adjacentFlagsCount === cellNum) {
+        adjacentCells.filter('.closed_cell').trigger('mousedown');
     }
 }
 
